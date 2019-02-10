@@ -1,0 +1,77 @@
+﻿<!-- navbar-->
+<nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="~/Content/Images/logo.png" class="img-fluid">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <div class="nav-link"> @Html.ActionLink(cet.Resources.lang.AnaSayfa, "Index", "Home") </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link"> @Html.ActionLink(cet.Resources.lang.Etkinlikler, "Etkinlikler", "Home") </div>
+                </li>
+
+
+                @if (Request.IsAuthenticated)
+                {
+                    // Role Admin ise menüler gözüküyor //
+                    if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <div class="nav-link"> @Html.ActionLink(cet.Resources.lang.Yonetici, "Index", "Admin") </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link"> @Html.ActionLink(cet.Resources.lang.Blog, "Blog", "Home") </div>
+                        </li>
+                    }
+                    else
+                    {
+                        // Role Admin değil ise bu menüler gözüküyor //
+                        <li class="nav-item">
+                            <div class="nav-link"> @Html.ActionLink(cet.Resources.lang.Blog, "Blog", "Home") </div>
+                        </li>
+                    }
+
+                }
+
+
+                <li class="nav-item">
+                    <div class="nav-link"> @Html.ActionLink(cet.Resources.lang.Hakkimizda, "Hakkimizda", "Home") </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link"> @Html.ActionLink(cet.Resources.lang.Iletisim, "Iletisim", "Home") </div>
+                </li>
+
+                <li class="dropdown btn-sm">
+                    @if (HttpContext.Current.Session["Culture"].ToString() == "tr")
+                    {
+                        <button class="btn btn-sm btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">TR <span class="caret"></span></button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>@Html.ActionLink("EN", "ChangeCulture", "Home", new { lang = "en", returnurl = this.Request.RawUrl }, null)</li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">EN <span class="caret"></span></button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>@Html.ActionLink("TR", "ChangeCulture", "Home", new { lang = "tr", returnurl = this.Request.RawUrl }, null)</li>
+                        </ul>
+                    }
+                </li>
+
+                @Html.Partial("_LoginPartial")
+
+            </ul>
+        </div>
+    </div>
+</nav>
+

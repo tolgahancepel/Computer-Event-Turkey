@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model cet.Models.Blog
+
+
+<div class="col-md-10 centered">
+    <!-- Blog Post -->
+
+    <div class="card about-card">
+
+        @if (Model.BlogFoto == null)
+        {
+            <img class="card-img-top" src="~/Content/Uploads/default_resim.jpg" alt="@Model.Baslik">
+        }
+        else
+        {
+            <img class="card-img-top" src="data:Uploads/jpg;base64, @System.Convert.ToBase64String(Model.BlogFoto)" alt="@Model.Baslik">
+        }
+
+        <div class="card-body">
+            <h3 class="title">@Model.Baslik</h3>
+            <p class="text-muted text-rose">@Model.OlusturmaTarihi</p>
+            <p class="about-paragraf">
+                @Html.Raw(Model.Icerik)
+            </p>
+        </div>
+    </div>
+</div>
+

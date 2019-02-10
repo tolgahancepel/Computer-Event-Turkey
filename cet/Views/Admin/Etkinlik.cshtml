@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Etkinlik";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+@model List<cet.Models.Etkinlik>
+
+<h2>Etkinlik</h2>
+
+<p>
+    <a href="/Admin/EtkinlikEkle" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Etkinlik" style="margin-top:-33px;">Yeni Etkinlik</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Başlık
+        </th>
+        <th>
+            Fotoğraf
+        </th>
+        <th>
+            Tarih
+        </th>
+        <th>
+            Yer
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+            </td>
+
+            @if (item.EtkinlikFoto == null)
+            {
+                <td><img style='height:25px; width:55px; height:auto; border:solid 1px #cccccc;' src="~/Content/Uploads/default_resim.jpg" alt="" /></td>
+            }
+            else
+            {
+                <td>
+                    <img style='height:25px; width:55px; height:auto; border:solid 1px #cccccc;' src="data:Uploads/jpg;base64,@System.Convert.ToBase64String(item.EtkinlikFoto)" />
+                </td>
+            }
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yer)
+            </td>
+            <td>
+                <a class="btn btn-warning btn-sm" href="/Admin/EtkinlikDuzenle?EtkinlikId=@item.Id">Düzenle</a>
+                <a class="btn btn-info btn-sm" href="/Home/EtkinlikDetay?id=@item.Id">Detay</a>
+                @Html.ActionLink("Sil", "/EtkinlikSil", new { EtkinlikId = item.Id }, new { @class = "btn btn-sm btn-danger tooltips", onclick = "return confirm('Silmek İstediğinize Emin Misinizin ?');" })
+            </td>
+        </tr>
+    }
+
+</table>

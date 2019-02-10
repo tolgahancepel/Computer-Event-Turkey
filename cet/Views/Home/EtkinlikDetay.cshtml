@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "EtkinlikDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model cet.Models.Etkinlik
+
+<div class="col-md-10 centered">
+    <!-- Blog Post -->
+
+    <div class="card about-card">
+
+        @if (Model.EtkinlikFoto == null)
+        {
+            <img class="card-img-top" src="~/Content/Uploads/default_resim.jpg" alt="@Model.Baslik">
+        }
+        else
+        {
+            <img class="card-img-top" src="data:Uploads/jpg;base64, @System.Convert.ToBase64String(Model.EtkinlikFoto)" alt="@Model.Baslik">
+        }
+
+        <div class="card-body">
+            
+            <span class="badge badge-info">
+                <h5 class="title">@Model.Tarih.ToString("dd MMMM yyy")</h5>
+            </span>
+
+
+            <h4 class="title">@Model.Baslik</h4>
+            <h6 class="title">@Model.Yer</h6>
+            <p class="about-paragraf">
+                @Html.Raw(Model.Icerik)
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+

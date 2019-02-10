@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Etkinlikler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model  List<cet.Models.Etkinlik>
+
+<h3 class="title text-center">Gelecek Etkinlikler</h3>
+
+<div class="row">
+
+    <!-- Etkinlik Post -->
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 etkinlik-card">
+            <a href="/Home/EtkinlikDetay?id=@item.Id">
+                <div class="etkinlik-gradient">
+
+                    @if (item.EtkinlikFoto == null)
+                    {
+                        <img class="card-img-top" src="~/Content/Uploads/default_resim.jpg" alt="@item.Baslik">
+                    }
+                    else
+                    {
+                        <img class="card-img-top" src="data:image/png;base64,@System.Convert.ToBase64String(item.EtkinlikFoto)" alt="@item.Baslik">
+                    }
+
+                </div>
+                <div class="card-img-overlay">
+                    <div class="badge badge-rose etkinlik-badge">
+                        <div class="etkinlik-tarih">@item.Tarih.ToString("dd MMMM") </div>
+                    </div>
+                    <h4 class="card-title bottom-left">@item.Baslik</h4>
+                </div>
+                <hr />
+            </a>
+        </div>
+    }
+</div>

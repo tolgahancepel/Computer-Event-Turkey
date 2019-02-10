@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin Panel | </title>
+
+    <!-- Font Awesome -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="~/Content/dashboard/bootstrap.min.css" rel="stylesheet">
+
+    <!-- NProgress -->
+    <link href="~/Content/dashboard/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="~/Content/dashboard/custom.css" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="~/Scripts/tinymce/tinymce.js"></script>
+    <script>tinyMCE.init({
+    selector: 'textarea'
+        });
+
+    </script>
+
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="/Admin/" class="site_title"><i class="fa fa-cog"></i> <span>Admin</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a href="/Admin/"><i class="fa fa-cog"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Slider"><i class="fa fa-address-card"></i>Slider</a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Blog"><i class="fa fa-pencil-square"></i>Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Etkinlik"><i class="fa fa-calendar"></i>Etkinlik</a>
+                                </li>
+                                <li>
+                                    <a href="/Home/Index"><i class="fa fa-home"></i>Siteye Dön</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /sidebar menu -->
+
+
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    @using Microsoft.AspNet.Identity
+                                        @Html.ActionLink(User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <li>
+                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+
+
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Scripts/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/Scripts/nprogress.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="~/Scripts/custom.min.js"></script>
+</body>
+</html>

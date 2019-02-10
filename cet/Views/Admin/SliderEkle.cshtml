@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "EtkinlikEkle";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+@model cet.Models.Slider
+
+@using (Html.BeginForm("SliderEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Yeni Slider</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SliderFoto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="file" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BitisTarihi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BitisTarihi, new { htmlAttributes = new { @class = "form-control", id = "Tarih" } })
+                @Html.ValidationMessageFor(model => model.BitisTarihi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Oluştur" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Slider", "Admin")
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Tarih").datepicker({ dateFormat: 'DD.MM.YYYY' });
+        $("#Tarih").datepicker('setDate', new Date());
+    });
+</script>

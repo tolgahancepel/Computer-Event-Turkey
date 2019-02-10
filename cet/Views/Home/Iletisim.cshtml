@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <address>
+                    Sakarya Üniversitesi Esentepe Kampüsü Kemalpaşa Mahallesi Üniversite Caddesi 54050<br>
+                    Serdivan, Sakarya <br>
+                    <i class="fa fa-phone"></i>  987 654 3210 <br>
+                    <i class="fa fa-fax"></i> 012 123 2345<br>
+                    <i class="fa fa-envelope"></i> info@example.com<br>
+                </address>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card card-contact ">
+            <form role="form" id="contact-form" method="post">
+                <div class="card-header card-header-text card-header-success">
+                    <div class="card-text">
+                        <h4 class="card-title">Bizimle İletişime Geçin</h4>
+                    </div>
+                </div>
+                <div class="card-content iletisim-padding">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group label-floating is-empty">
+                                <label class="control-label">Ad*</label>
+                                <input name="name" class="form-control" type="text">
+                                <span class="material-input"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating is-empty">
+                                <label class="control-label">Soyad*</label>
+                                <input name="name" class="form-control" type="text">
+                                <span class="material-input"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group label-floating is-empty">
+                        <label class="control-label">Telefon</label>
+                        <input name="name" class="form-control" type="text">
+                        <span class="material-input"></span>
+                    </div>
+
+                    <div class="form-group label-floating is-empty">
+                        <label class="control-label">Email adresi*</label>
+                        <input name="email" class="form-control" type="email">
+                        <span class="material-input"></span>
+                    </div>
+                    <div class="form-group label-floating is-empty">
+                        <label class="control-label">Mesajınız...</label>
+                        <textarea name="message" class="form-control" id="message" rows="6"></textarea>
+                        <span class="material-input"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-sm btn-success">Mesaj Gönder</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="info">
+            <div class="icon icon-primary">
+                <i class="material-icons">how_to_reg</i>
+            </div>
+            <h4 class="info-title">Keşfet</h4>
+            <p>Her hafta onlarca etkinlik arasından kendine uygun olanları keşfedebilirsin!</p>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="info">
+            <div class="icon icon-primary">
+                <i class="material-icons">touch_app</i>
+            </div>
+            <h4 class="info-title">İncele</h4>
+            <p>Etkinliklerin ücretli mi, ücretsiz mi olduğu gibi birçok detayı inceleyebilirsin!</p>
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="info">
+            <div class="icon icon-primary">
+                <i class="material-icons">tag_faces</i>
+            </div>
+            <h4 class="info-title">Keyfini Çıkar</h4>
+            <p>Etkinliğe gidip keyfini çıkar.</p>
+        </div>
+    </div>
+</div>

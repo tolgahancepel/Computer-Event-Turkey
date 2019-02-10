@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<cet.Models.Blog>
+
+<div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+        @foreach (var item in Model)
+        {
+        <div class="card mb-4 blog-post">
+
+            @if (item.BlogFoto == null)
+            {
+                <img class="card-img-top" src="~/Content/Uploads/default_resim.jpg" alt="@item.Baslik">
+            }
+            else
+            {
+                <img class="card-img-top" src="data:image/png;base64,@System.Convert.ToBase64String(item.BlogFoto)" alt="@item.Baslik">
+            }
+            <div class="card-body">
+                <h3 class="card-title">@item.Baslik</h3>
+                <div class="text-muted">
+                    @item.OlusturmaTarihi
+                </div>
+                <p class="card-text">
+                    @Html.Raw(item.Icerik.Length > 200 ? item.Icerik.Substring(0, 200) + "..." : item.Icerik)
+                </p>
+                <a href="/Home/BlogDetay?id=@item.Id" class="btn btn-primary btn-sm">Devamını Oku &rarr;</a>
+            </div>
+        </div>
+        <br />
+        }
+        <!-- Blog Post -->
+        
+        <br><br />
+
+        <nav aria-label="...">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">ÖNCEKİ</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">SONRAKİ</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- /.col-md-8-->
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <div class="card my-4" id="search_card">
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Ara...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm">Ara</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

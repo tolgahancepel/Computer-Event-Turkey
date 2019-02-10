@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<cet.Models.Slider>
+
+<div class="row">
+    <div class="col-md-12 ">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+
+                @foreach (var item in Model)
+                {
+                    if (Model.First() == item)
+                    {
+                        <div class="carousel-item active">
+                            @if (item == null)
+                            {
+                                <img class="d-block w-100" src="~/Content/Uploads/default_resim.jpg" alt="" />
+                            }
+                            else
+                            {
+                                <img class="d-block w-100" src="data:image/png;base64,@System.Convert.ToBase64String(item.SliderFoto)" alt="">
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="carousel-item">
+                            @if (item == null)
+                            {
+                                <img class="d-block w-100" src="~/Content/Uploads/default_resim.jpg" alt="" />
+                            }
+                            else
+                            {
+                                <img class="d-block w-100" src="data:image/png;base64,@System.Convert.ToBase64String(item.SliderFoto)" alt="">
+                            }
+                        </div>
+                    }
+                }
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="my_margin">
+    <div class="row">
+        <div class="card card-nav-tabs text-center">
+            <div class="card-header card-header-primary">
+                Etkinlikleri Keşfet!
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Önümüzdeki Tarihteki Etkinliklere Bakmak İster Misiniz?</h4>
+                <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                <a href="/Home/Etkinlikler" class="btn btn-primary">Buraya Tıklayın</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <div class="info">
+                <div class="icon icon-primary">
+                    <i class="material-icons">how_to_reg</i>
+                </div>
+                <h4 class="info-title">Keşfet</h4>
+                <p>Her hafta onlarca etkinlik arasından kendine uygun olanları keşfedebilirsin!</p>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="info">
+                <div class="icon icon-primary">
+                    <i class="material-icons">touch_app</i>
+                </div>
+                <h4 class="info-title">İncele</h4>
+                <p>Etkinliklerin ücretli mi, ücretsiz mi olduğu gibi birçok detayı inceleyebilirsin!</p>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="info">
+                <div class="icon icon-primary">
+                    <i class="material-icons">tag_faces</i>
+                </div>
+                <h4 class="info-title">Keyfini Çıkar</h4>
+                <p>Her ay onlarca etkinlikten istediğine git ve keyfini çıkar!</p>
+            </div>
+        </div>
+    </div>
+</div>
+

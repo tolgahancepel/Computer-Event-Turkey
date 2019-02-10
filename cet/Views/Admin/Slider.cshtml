@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+@model List<cet.Models.Slider>
+
+<h2>Slider</h2>
+
+<p>
+    <a href="/Admin/SliderEkle" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Slider" style="margin-top:-33px;">Yeni Slider</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Fotoğraf
+        </th>
+        <th>
+            Bitiş Tarihi
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (item.SliderFoto == null)
+            {
+                <td><img style='height:75px; width:165px; height:auto; border:solid 1px #cccccc;' src="~/Content/Uploads/default_resim.jpg" alt="" /></td>
+            }
+            else
+            {
+                <td>
+                    <img style='height:75px; width:165px; height:auto; border:solid 1px #cccccc;' src="data:Uploads/jpg;base64,@System.Convert.ToBase64String(item.SliderFoto)" />
+                </td>
+            }
+
+            <td>
+                @Html.DisplayFor(modelItem => item.BitisTarihi)
+            </td>
+            <td>
+                <a class="btn btn-warning btn-sm" href="/Admin/SliderDuzenle?SliderId=@item.ID">Düzenle</a>
+                @Html.ActionLink("Sil", "/SliderSil", new { SliderID = item.ID }, new { @class = "btn btn-sm btn-danger tooltips", onclick = "return confirm('Silmek istediğinize emin misiniz?');" })
+            </td>
+        </tr>
+    }
+
+</table>
