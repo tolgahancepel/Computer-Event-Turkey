@@ -10,4 +10,6 @@ Bu projeyi ASP.NET MVC 5 teknolojisini kullanarak geliştirdim.
 - Veritabanı: Entity Framework Code First
 - Arayüz: Material UI Kit (Bootstrap 4)
 
+### Ekran Görüntüsü
+
 <img src="https://docs.google.com/uc?id=16NIIfQhLSvEUe_8DHH0PbogLKHqfxBhf" />
