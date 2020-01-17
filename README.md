@@ -12,4 +12,4 @@ Bu projeyi ASP.NET MVC 5 teknolojisini kullanarak geliştirdim.
 
 ### Ekran Görüntüsü
 
-<img src="https://docs.google.com/uc?id=16NIIfQhLSvEUe_8DHH0PbogLKHqfxBhf" />
+<img src="https://github.com/tolgahancepel/Computer-Event-Turkey/blob/master/cet/Content/Images/full-page-1.png" />
